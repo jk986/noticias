@@ -17,13 +17,17 @@ const port = 3900;
 app.use(cors());
 
 // leer y convertir datos que recibo a objeto JS
-app.use(express.json());
+app.use(express.json()); //recibir datos con content-type app/json
+
+app.use(express.urlencoded({extended:true})); // recibe datos por form-urlencoded
 
 // rutas 
 const rutas_article = require("./paths/articleP");
+
 /*cargar rutas 
 params prefijo ("/") <- carga las rutas 
-desde la raiz de la url || ("/api") <- prefijo api y despues cargar rutas del archivo 
+desde la raiz de la url || 
+    ("/api") <- prefijo api y despues cargar rutas del archivo 
 */
 app.use("/api",rutas_article);
 

@@ -11,7 +11,7 @@ const ArticleSchema = Schema({
         require: true
     },
     date: {
-        type: date,
+        type: Date,
         default: Date.now()
     },
     image:{
